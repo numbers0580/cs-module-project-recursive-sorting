@@ -4,7 +4,24 @@ def merge(arrA, arrB):
     merged_arr = [0] * elements
 
     # Your code here
+    posA = 0
+    posB = 0
 
+    for i in range(elements):
+        if posA >= len(arrA):
+            # We already ran through and sorted arrA. Only elements in arrB remaining
+            merged_arr[i].append(arrB[posB])
+            posB += 1
+        elif posB >= len(arrB):
+            # We already ran through and sorted arrB. Only elements in arrA remaining
+            merged_arr[i].append(arrA[posA])
+            posA += 1
+        elif arrA[posA] < arrB[posB]:
+            merged_arr[i].append(arrA[posA])
+            posA += 1
+        else:
+            merged_arr[i].append(arrB[posB])
+            posB += 1
 
     return merged_arr
 
