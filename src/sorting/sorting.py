@@ -33,10 +33,7 @@ def merge_sort(arr):
     # Your code here
     if len(arr) > 1:
         mid = len(arr) // 2
-        lower = merge_sort(arr[:mid])
-        higher = merge_sort(arr[mid:])
-
-        arr = merge(lower, higher)
+        arr = merge(merge_sort(arr[:mid]), merge_sort(arr[mid:]))
 
     return arr
 
@@ -49,5 +46,12 @@ def merge_sort(arr):
 
 
 # def merge_sort_in_place(arr, l, r):
-    # Your code here
+#     # Your code here
+#     if len(arr) > 1:
+#         arr = merge_in_place(merge_sort_in_place(arr, arr[:len(arr) // 2], arr[len(arr) // 2:]), start, (len(arr) // 2), end)
+#     # I constructed arr above along the same vein as my construction on line 36, but using the parameters specified for this stretch
+#     # But at this point, I'm at a loss how start and end would or would not change in this recursion, and therefore
+#     # how I might create the merge_in_place function above.
+
+#     return arr
 
